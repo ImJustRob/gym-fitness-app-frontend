@@ -1,4 +1,4 @@
-export function ExercisesShow({ exercise, onUpdate }) {
+export function ExercisesShow({ exercise, onUpdate, onDestroy }) {
 
     const handleSubmit = (event) => {
              event.preventDefault();
@@ -28,6 +28,7 @@ export function ExercisesShow({ exercise, onUpdate }) {
          </div>
          <button type="submit">Update Exercise</button>
        </form>
+       <button onClick={() => onDestroy(exercise.id)}>Delete Exercise</button>
       </div>
     );
   }

@@ -48,6 +48,14 @@ export function ExercisesPage() {
                    handleClose();
                  });
                };
+
+               const handleDestroy = (id) => {
+                     console.log("handleDestroy", id);
+                     axios.delete(`http://localhost:3000/exercises/${id}.json`).then(() => {
+                       setExercises(exercises.filter((exercise) => exercise.id !== id));
+                       handleClose();
+                     });
+                   };
         
            const handleClose = () => {
              console.log("handleClose");
@@ -61,7 +69,7 @@ export function ExercisesPage() {
         <ExercisesNew onCreate={handleCreate} />
         <ExercisesIndex exercises={exercises} onShow={handleShow} />
         <Modal show={isExercisesShowVisible} onClose={handleClose}>
-        <ExercisesShow exercise={currentExercise} onUpdate={handleUpdate} />
+        <ExercisesShow exercise={currentExercise} onUpdate={handleUpdate} onDestroy={handleDestroy} />
        </Modal>
       </main>
     )
