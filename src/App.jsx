@@ -7,6 +7,7 @@ import { LoginPage } from "./LoginPage";
 import { ExercisesPage } from "./ExercisesPage";
 import { ExercisesIndexPage } from "./ExercisesIndexPage";
 import { ExercisesNewPage } from "./ExercisesNewPage";
+import {RoutinesPage} from "./RoutinesPage";
 import { Footer } from "./Footer";
 
 const router = createBrowserRouter([
@@ -32,13 +33,19 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/exercises",         element: <ExercisesIndexPage />,
+        path: "/exercises",             
+        element: <ExercisesIndexPage />,
         loader: () => axios.get("http://localhost:3000/exercises.json").then((response) => response.data),
       },
       {
-                 path: "/exercises/new",
-                 element: <ExercisesNewPage />,
-               },
+        path: "/exercises/new",
+        element: <ExercisesNewPage />,
+      },
+      {
+        path: "routines",
+        element: <RoutinesPage />,
+        loader: () => axios.get("http://localhost:3000/routines.json").then((response) => response.data),
+      },
     ],
   },
 ]);

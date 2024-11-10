@@ -10,7 +10,7 @@ export function ExercisesNewPage() {
     console.log("handleCreate", params);
     axios.post("http://localhost:3000/exercises.json", params).then((response) => {
       console.log(response);
-      navigate("/photos");
+      navigate("/exercises");
     });
   };
 
