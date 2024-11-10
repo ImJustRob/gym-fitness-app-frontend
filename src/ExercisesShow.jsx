@@ -21,10 +21,10 @@ export function ExercisesShow({ exercise, onUpdate, onDestroy }) {
            Description: <input defaultValue={exercise.description} name="description" type="text" />
          </div>
          <div>
-           Image: <input defaultValue={exercise.width} name="image_url" type="text" />
+           Image: <input defaultValue={exercise.image_url} name="image_url" type="text" />
          </div>
          <div>
-           Video: <input defaultValue={exercise.height} name="video_url" type="text" />
+           Video: <input defaultValue={exercise.video_url} name="video_url" type="text" />
          </div>
          <button type="submit">Update Exercise</button>
        </form>

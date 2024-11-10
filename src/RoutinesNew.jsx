@@ -1,17 +1,24 @@
-export function RoutinesNew({ onCreate }) {
+export function RoutinesNew({ onCreate, exercises }) {
 
     const handleSubmit = (event) => {
       event.preventDefault();
       const params = new FormData(event.target);
       onCreate(params, () => event.target.reset());
     };
-
+  
     return (
       <div>
         <h1>New Routine</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            Exercise ID: <input name="exercise_id" type="text" />
+            Exercise:
+            <select name="exercise_id">
+              {exercises.map((exercise) => (
+                <option key={exercise.id} value={exercise.id}>
+                  {exercise.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div>
             Reps: <input name="reps" type="text" />
@@ -24,3 +31,4 @@ export function RoutinesNew({ onCreate }) {
       </div>
     );
   }
+  
