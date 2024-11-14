@@ -1,4 +1,4 @@
-export function RoutinesIndex({ routines }) {
+export function RoutinesIndex({ routines, onShow }) {
     return (
       <div>
         <h1>All routines</h1>
@@ -9,6 +9,7 @@ export function RoutinesIndex({ routines }) {
            {/* <p>Exercise ID: {routine.exercise_id}</p> */}
            <p>Reps: {routine.reps}</p>
            <p>Sets: {routine.sets}</p>
+           <button onClick={() => onShow(routine)}>More info</button>
          </div>
        ))}
       </div>

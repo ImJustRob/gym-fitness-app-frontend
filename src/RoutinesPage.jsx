@@ -2,10 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { RoutinesIndex } from "./RoutinesIndex";
 import { RoutinesNew } from "./RoutinesNew";
+import { RoutinesShow } from "./RoutinesShow";
+import { Modal } from "./Modal";
 
 export function RoutinesPage() {
   const [routines, setRoutines] = useState([]);
   const [exercises, setExercises] = useState([]);
+  const [isRoutinesShowVisible, setIsRoutinesShowVisible] = useState(false);
+  const [currentRoutine, setCurrentRoutine] = useState({});
 
   const handleIndex = () => {
     console.log("handleIndex");
@@ -23,6 +27,17 @@ export function RoutinesPage() {
     });
   };
 
+     const handleShow = (routine) => {
+         console.log("handleShow", routine);
+         setIsRoutinesShowVisible(true);
+         setCurrentRoutine(routine);
+       };
+    
+       const handleClose = () => {
+         console.log("handleClose");
+         setIsRoutinesShowVisible(false);
+       };
+
   useEffect(() => {
     axios.get("http://localhost:3000/exercises.json").then((response) => {
       setExercises(response.data);
@@ -34,7 +49,10 @@ export function RoutinesPage() {
   return (
     <main>
       <RoutinesNew onCreate={handleCreate} exercises={exercises} />
-      <RoutinesIndex routines={routines} />
+      <RoutinesIndex routines={routines} onShow={handleShow} />
+      <Modal show={isRoutinesShowVisible} onClose={handleClose}>
+      <RoutinesShow routine={currentRoutine} />
+       </Modal>
     </main>
   );
 }
