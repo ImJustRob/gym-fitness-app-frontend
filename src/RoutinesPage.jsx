@@ -49,7 +49,14 @@ export function RoutinesPage() {
                handleClose();
              });
            };
-        
+
+              const handleDestroy = (id) => {
+                 console.log("handleDestroy", id);
+                 axios.delete(`http://localhost:3000/routines/${id}.json`).then(() => {
+                   setRoutines(routines.filter((routine) => routine.id !== id));
+                   handleClose();
+                 });
+               };        
     
        const handleClose = () => {
          console.log("handleClose");
@@ -69,7 +76,7 @@ export function RoutinesPage() {
       <RoutinesNew onCreate={handleCreate} exercises={exercises} />
       <RoutinesIndex routines={routines} onShow={handleShow} />
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-      <RoutinesShow routine={currentRoutine} onUpdate={handleUpdate} />
+      <RoutinesShow routine={currentRoutine} onUpdate={handleUpdate} onDestroy={handleDestroy} />
        </Modal>
     </main>
   );

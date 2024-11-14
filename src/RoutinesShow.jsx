@@ -1,4 +1,4 @@
-export function RoutinesShow({ routine, onUpdate }) {
+export function RoutinesShow({ routine, onUpdate, onDestroy }) {
    
        const handleSubmit = (event) => {
              event.preventDefault();
@@ -29,6 +29,7 @@ export function RoutinesShow({ routine, onUpdate }) {
          </div>
          <button type="submit">Update Routine</button>
        </form>
+       <button onClick={() => onDestroy(routine.id)}>Delete Routine</button>
       </div>
     );
   }
