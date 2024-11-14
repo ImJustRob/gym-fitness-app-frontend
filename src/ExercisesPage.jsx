@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ExercisesIndex } from "./ExercisesIndex";
-import { ExercisesNew } from "./ExercisesNew";
-import { ExercisesShow } from "./ExercisesShow";
-import { Modal } from "./Modal";
+// import { ExercisesNew } from "./ExercisesNew";
+// import { ExercisesShow } from "./ExercisesShow";
+// import { Modal } from "./Modal";
 
 export function ExercisesPage() {
   const [exercises, setExercises] = useState([]);
@@ -81,11 +81,11 @@ export function ExercisesPage() {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <ExercisesNew onCreate={handleCreate} />
+      {/* <ExercisesNew onCreate={handleCreate} /> */}
       <ExercisesIndex exercises={filteredExercises} onShow={handleShow} />
-      <Modal show={isExercisesShowVisible} onClose={handleClose}>
+      {/* <Modal show={isExercisesShowVisible} onClose={handleClose}>
         <ExercisesShow exercise={currentExercise} onUpdate={handleUpdate} onDestroy={handleDestroy} />
-      </Modal>
+      </Modal> */}
     </main>
   );
 }
