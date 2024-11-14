@@ -516,3 +516,29 @@ body {
 main {
   flex-grow: 1;
 }
+
+/* LogoutLink.css */
+.logout-link {
+  color: #2e7d32;  /* Green color, matching the theme */
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 2px solid #2e7d32;  /* Green border to match the link color */
+  transition: all 0.3s ease;
+  display: inline-block;  /* So it behaves like a button */
+}
+
+.logout-link:hover {
+  background-color: #2e7d32; /* Green background on hover */
+  color: white;              /* White text on hover */
+  border-color: #1b5e20;     /* Darker green border */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.logout-link:active {
+  color: #388e3c;  /* Darker green on active (click) */
+  border-color: #388e3c; /* Darker green border on active */
+}
+
