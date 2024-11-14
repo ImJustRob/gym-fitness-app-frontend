@@ -32,6 +32,24 @@ export function RoutinesPage() {
          setIsRoutinesShowVisible(true);
          setCurrentRoutine(routine);
        };
+
+          const handleUpdate = (id, params, successCallback) => {
+             console.log("handleUpdate", params);
+             axios.patch(`http://localhost:3000/routines/${id}.json`, params).then((response) => {
+               setRoutines(
+                 routines.map((routine) => {
+                   if (routine.id === response.data.id) {
+                     return response.data;
+                   } else {
+                     return routine;
+                   }
+                 })
+               );
+               successCallback();
+               handleClose();
+             });
+           };
+        
     
        const handleClose = () => {
          console.log("handleClose");
@@ -51,7 +69,7 @@ export function RoutinesPage() {
       <RoutinesNew onCreate={handleCreate} exercises={exercises} />
       <RoutinesIndex routines={routines} onShow={handleShow} />
       <Modal show={isRoutinesShowVisible} onClose={handleClose}>
-      <RoutinesShow routine={currentRoutine} />
+      <RoutinesShow routine={currentRoutine} onUpdate={handleUpdate} />
        </Modal>
     </main>
   );
