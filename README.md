@@ -12,7 +12,7 @@ This project allows users to:
 
 Technologies Used
 *Frontend: React, React Router, Axios
-*Backend: Ruby on Rails (Assumed for example, since routes indicate users.json and routines.json)
+*Backend: Ruby on Rails
 *State Management: React hooks (useState, useEffect)
 *CSS: Simple custom styles (could be expanded to a UI framework like Bootstrap or Tailwind)
 
