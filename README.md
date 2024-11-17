@@ -1,5 +1,7 @@
 # React + Vite
 
+Link for the backend: https://github.com/ImJustRob/gym-fitness-app
+
 Gym Fitness App
 A web application to track and manage fitness routines, including exercises, sets, reps, and more. Users can create accounts, log in, create new routines, and view detailed information about their exercises and routines.
 
